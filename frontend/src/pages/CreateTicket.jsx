@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/ticket.css";
 
 export default function CreateTicket() {
   const [titulo, setTitulo] = useState("");

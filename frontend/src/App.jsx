@@ -1,7 +1,7 @@
-import CreateTicket from "./pages/CreateTicket";
+import AppRouter from "./routes/AppRouter";
 
 function App() {
-  return <CreateTicket />;
+  return <AppRouter />;
 }
 
 export default App;
