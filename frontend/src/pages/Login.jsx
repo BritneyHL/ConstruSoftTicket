@@ -10,6 +10,14 @@ export default function Auth() {
 
   const navigate = useNavigate();
 
+  // IMÁGENES DEL CARRUSEL
+  const universityImages = [
+    "https://images.unsplash.com/photo-1562774053-701939374585",
+    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1",
+    "https://images.unsplash.com/photo-1541339907198-e08756dedf3f",
+    "https://images.unsplash.com/photo-1588072432836-e10032774350"
+  ];
+
   const handleSubmit = async () => {
     try {
       if (isLogin) {
@@ -28,6 +36,31 @@ export default function Auth() {
     <div className="auth-container">
       <div className="auth-left">
         <div className="auth-overlay">
+
+          {/* CARRUSEL */}
+          <div className="carousel-container">
+            <div className="carousel-track">
+              {universityImages.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`Universidad ${index + 1}`}
+                  className="carousel-image"
+                />
+              ))}
+
+              {/* DUPLICADO PARA EFECTO INFINITO */}
+              {universityImages.map((img, index) => (
+                <img
+                  key={`duplicate-${index}`}
+                  src={img}
+                  alt={`Universidad ${index + 1}`}
+                  className="carousel-image"
+                />
+              ))}
+            </div>
+          </div>
+
           <div className="brand-content">
             <span className="logo-badge">ESTO ES MI TICKET</span>
             <h1>REALIZADO POR</h1>

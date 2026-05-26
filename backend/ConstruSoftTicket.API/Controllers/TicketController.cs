@@ -19,6 +19,10 @@ public class TicketController : ControllerBase
     
     public IActionResult Crear([FromBody] CreateTicketDto dto)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
         ticketService.CrearTicket(dto);
         return Ok(new { mensaje = "Ticket Registrado Correctamente"});
     }
