@@ -17,25 +17,19 @@ export const login = async (data) => {
   return await response.json();
 };
 
-const handleSubmit = async () => {
-  try {
-    if (isLogin) {
-      await login({ email, password });
- 
-      alert("Login correcto ✅");
-      navigate("/tickets");
- 
-    } else {
-      await register({ email, password });
- 
-      alert("Usuario creado correctamente ✅"); // 👈 mensaje
-      setIsLogin(true);
- 
-      // limpiar campos (opcional pero pro)
-      setEmail("");
-      setPassword("");
-    }
-  } catch (error) {
-    alert(error.message);
+// 📝 REGISTER
+export const register = async (data) => {
+  const response = await fetch(`${API_URL}/register`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error("Error al registrar usuario");
   }
+
+  return await response.json();
 };
